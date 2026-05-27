@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className="title">Wizard World</h1>
+      <h1 className="title">Wizard World Dashboard</h1>
 
       <div className="tabs">
         <button onClick={() => setActiveTab("characters")}>Characters</button>
@@ -42,62 +42,77 @@ function App() {
         <button onClick={() => setActiveTab("spells")}>Spells</button>
       </div>
 
-      <div className="content">
+      <div className="table-container">
         {activeTab === "characters" && (
-          <div className="grid">
-            {characters.map((char) => (
-              <div className="card" key={char._id}>
-                <h2>{char.name}</h2>
-                <p>
-                  <strong>House:</strong> {char.house}
-                </p>
-                <p>
-                  <strong>Role:</strong> {char.role}
-                </p>
-                <p>
-                  <strong>Patronus:</strong> {char.patronus}
-                </p>
-              </div>
-            ))}
-          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>House</th>
+                <th>Role</th>
+                <th>Patronus</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {characters.map((char) => (
+                <tr key={char._id}>
+                  <td>{char.name}</td>
+                  <td>{char.house}</td>
+                  <td>{char.role}</td>
+                  <td>{char.patronus}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
 
         {activeTab === "houses" && (
-          <div className="grid">
-            {houses.map((house) => (
-              <div className="card" key={house._id}>
-                <h2>{house.name}</h2>
-                <p>
-                  <strong>Founder:</strong> {house.founder}
-                </p>
-                <p>
-                  <strong>Animal:</strong> {house.animal}
-                </p>
-                <p>
-                  <strong>Colors:</strong> {house.colors}
-                </p>
-              </div>
-            ))}
-          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Founder</th>
+                <th>Animal</th>
+                <th>Colors</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {houses.map((house) => (
+                <tr key={house._id}>
+                  <td>{house.name}</td>
+                  <td>{house.founder}</td>
+                  <td>{house.animal}</td>
+                  <td>{house.colors}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
 
         {activeTab === "spells" && (
-          <div className="grid">
-            {spells.map((spell) => (
-              <div className="card" key={spell._id}>
-                <h2>{spell.name}</h2>
-                <p>
-                  <strong>Type:</strong> {spell.type}
-                </p>
-                <p>
-                  <strong>Effect:</strong> {spell.effect}
-                </p>
-                <p>
-                  <strong>Difficulty:</strong> {spell.difficulty}
-                </p>
-              </div>
-            ))}
-          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Effect</th>
+                <th>Difficulty</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {spells.map((spell) => (
+                <tr key={spell._id}>
+                  <td>{spell.name}</td>
+                  <td>{spell.type}</td>
+                  <td>{spell.effect}</td>
+                  <td>{spell.difficulty}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
     </div>
