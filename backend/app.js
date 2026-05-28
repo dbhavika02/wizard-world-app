@@ -12,6 +12,10 @@ var app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/test", (req, res) => {
+    res.send("Test route works");
+});
+
 app.get("/", (req, res) => {
     res.send("Wizard World API Running");
 });
